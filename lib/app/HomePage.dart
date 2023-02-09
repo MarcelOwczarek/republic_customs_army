@@ -15,6 +15,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.indigo,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'images/logo.png',
+              scale: 12,
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            const Text(
+              'Republic Customs Army',
+              style: TextStyle(color: Colors.cyan),
+            )
+          ],
+        ),
+      ),
       body: Builder(
         builder: (context) {
           if (currrentIndex == 0) {
