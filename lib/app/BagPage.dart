@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Bag extends StatelessWidget {
-  const Bag({
+class BagPage extends StatelessWidget {
+  const BagPage({
     super.key,
   });
 

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class MyAccount extends StatelessWidget {
-  const MyAccount({
+class ShopPage extends StatelessWidget {
+  const ShopPage({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('Trzy'),
+      child: Text('Jeden'),
     );
   }
 }
