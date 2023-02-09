@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class NewsPage extends StatelessWidget {
@@ -7,16 +8,44 @@ class NewsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: const [CustomContainer()],
+    return StreamBuilder<QuerySnapshot>(
+      stream: FirebaseFirestore.instance.collection('news').snapshots(),
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return const Center(
+            child: Text('Wystąpił nieoczekiwany błąd'),
+          );
+        }
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation(
+                Colors.indigo,
+              ),
+            ),
+          );
+        }
+        final documents = snapshot.data!.docs;
+
+        return ListView(
+          children: [
+            for (final document in documents) ...[
+              CustomContainer(document['title']),
+            ],
+          ],
+        );
+      },
     );
   }
 }
 
 class CustomContainer extends StatelessWidget {
-  const CustomContainer({
-    super.key,
-  });
+  const CustomContainer(
+    this.title, {
+    Key? key,
+  }) : super(key: key);
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +58,8 @@ class CustomContainer extends StatelessWidget {
           Radius.circular(15),
         ),
       ),
-      child: const Center(
-        child: Text('Info z Firebase'),
+      child: Center(
+        child: Text(title),
       ),
     );
   }
