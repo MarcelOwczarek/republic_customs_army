@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:republic_customs_army/app/Bag.dart';
+import 'package:republic_customs_army/app/MyAccount.dart';
+import 'package:republic_customs_army/app/News.dart';
+import 'package:republic_customs_army/app/Shop.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -37,23 +41,15 @@ class _HomePageState extends State<HomePage> {
       body: Builder(
         builder: (context) {
           if (currrentIndex == 0) {
-            return const Center(
-              child: Text('Zero'),
-            );
+            return const News();
           }
           if (currrentIndex == 1) {
-            return const Center(
-              child: Text('Jeden'),
-            );
+            return const Shop();
           }
           if (currrentIndex == 2) {
-            return const Center(
-              child: Text('Dwa'),
-            );
+            return const Bag();
           }
-          return const Center(
-            child: Text('Trzy'),
-          );
+          return const MyAccount();
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
