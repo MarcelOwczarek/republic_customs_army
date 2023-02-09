@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "291498837160",
+    "project_id": "republiccustomsarmy",
+    "storage_bucket": "republiccustomsarmy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:291498837160:android:f89494d4f63064d7c92e9d",
+        "android_client_info": {
+          "package_name": "com.marcelowczarek.republic_customs_army"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "291498837160-fh6b09lunpun7a1vqp1fpks0ski0kmj9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsSwYp8Nsv4gDwerFvsfGo1ULlhyirNbM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "291498837160-fh6b09lunpun7a1vqp1fpks0ski0kmj9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

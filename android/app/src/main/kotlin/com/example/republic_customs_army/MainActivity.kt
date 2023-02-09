@@ -1,4 +1,4 @@
-package com.example.republic_customs_army
+package com.marcelowczarek.republic_customs_army
 
 import io.flutter.embedding.android.FlutterActivity
 
