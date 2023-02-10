@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:republic_customs_army/app/SecondLoginPage.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({
@@ -42,7 +43,13 @@ class LoginPage extends StatelessWidget {
               height: 50,
               width: 340,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => SecondLoginPage(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.indigo,
                   shape: RoundedRectangleBorder(
