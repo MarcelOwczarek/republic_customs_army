@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:republic_customs_army/app/BagPage.dart';
+import 'package:republic_customs_army/app/LoginPage.dart';
 import 'package:republic_customs_army/app/MyAccountPage.dart';
 import 'package:republic_customs_army/app/NewsPage.dart';
 import 'package:republic_customs_army/app/ShopPage.dart';
@@ -15,6 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var currrentIndex = 0;
+  var needAccount = true;
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +49,11 @@ class _HomePageState extends State<HomePage> {
             return const ShopPage();
           }
           if (currrentIndex == 2) {
-            return const BagPage();
+            return needAccount == true ? const LoginPage() : const BagPage();
           }
-          return const MyAccountPage();
+          return needAccount == true
+              ? const LoginPage()
+              : const MyAccountPage();
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
