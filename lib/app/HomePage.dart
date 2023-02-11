@@ -15,40 +15,42 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var currrentIndex = 0;
+  var currentIndex = 0;
   var needAccount = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.indigo,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'images/logo.png',
-              scale: 12,
+      appBar: currentIndex == 1
+          ? null
+          : AppBar(
+              backgroundColor: Colors.indigo,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    'images/logo.png',
+                    scale: 12,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    'Republic Customs Army',
+                    style: TextStyle(color: Colors.cyan),
+                  )
+                ],
+              ),
             ),
-            const SizedBox(
-              width: 10,
-            ),
-            const Text(
-              'Republic Customs Army',
-              style: TextStyle(color: Colors.cyan),
-            )
-          ],
-        ),
-      ),
       body: Builder(
         builder: (context) {
-          if (currrentIndex == 0) {
+          if (currentIndex == 0) {
             return const NewsPage();
           }
-          if (currrentIndex == 1) {
+          if (currentIndex == 1) {
             return const ShopPage();
           }
-          if (currrentIndex == 2) {
+          if (currentIndex == 2) {
             return needAccount == true ? const LoginPage() : const BagPage();
           }
           return needAccount == true
@@ -58,11 +60,11 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        currentIndex: currrentIndex,
+        currentIndex: currentIndex,
         fixedColor: Colors.indigo,
         onTap: (newIndex) {
           setState(() {
-            currrentIndex = newIndex;
+            currentIndex = newIndex;
           });
         },
         items: const [

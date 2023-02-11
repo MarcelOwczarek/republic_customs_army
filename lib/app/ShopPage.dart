@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:republic_customs_army/app/SecondLoginPage.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({
@@ -8,50 +8,85 @@ class ShopPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      padding: const EdgeInsets.all(10),
-      children: [
-        Container(
-          padding: const EdgeInsets.all(5),
-          margin: const EdgeInsets.all(5),
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            image: DecorationImage(
-              image: AssetImage('images/501_legion.png'),
+    return DefaultTabController(
+      length: 5,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.indigo,
+          title: Center(
+            child: Text(
+              'Nasze produkty ',
+              style: GoogleFonts.poppins(),
             ),
           ),
-          child: GestureDetector(
-            onTap: () {},
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(5),
-          margin: const EdgeInsets.all(5),
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            image: DecorationImage(
-              image: AssetImage('images/187_th.png'),
+          bottom: TabBar(
+            isScrollable: true,
+            indicator: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Colors.indigoAccent,
             ),
-          ),
-          child: GestureDetector(
-            onTap: () {},
+            tabs: const [
+              Tab(
+                text: 'Akcesoria',
+              ),
+              Tab(
+                text: 'Blastery',
+              ),
+              Tab(
+                text: 'Hełmy',
+              ),
+              Tab(
+                text: 'Kalkomanie',
+              ),
+            ],
           ),
         ),
-        Container(
-          padding: const EdgeInsets.all(5),
-          margin: const EdgeInsets.all(5),
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            image: DecorationImage(
-              image: AssetImage('images/mystery_box.jpg'),
+        body: (GridView.count(
+          crossAxisCount: 2,
+          padding: const EdgeInsets.all(10),
+          children: [
+            Container(
+              padding: const EdgeInsets.all(5),
+              margin: const EdgeInsets.all(5),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                image: DecorationImage(
+                  image: AssetImage('images/501_legion.png'),
+                ),
+              ),
+              child: GestureDetector(
+                onTap: () {},
+              ),
             ),
-          ),
-          child: GestureDetector(
-            onTap: () {},
-          ),
-        ),
-      ],
+            Container(
+              padding: const EdgeInsets.all(5),
+              margin: const EdgeInsets.all(5),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                image: DecorationImage(
+                  image: AssetImage('images/187_th.png'),
+                ),
+              ),
+              child: GestureDetector(
+                onTap: () {},
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.all(5),
+              margin: const EdgeInsets.all(5),
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                image: DecorationImage(
+                  image: AssetImage('images/mystery_box.jpg'),
+                ),
+              ),
+              child: GestureDetector(
+                onTap: () {},
+              ),
+            ),
+          ],
+        )),
+      ),
     );
   }
 }
