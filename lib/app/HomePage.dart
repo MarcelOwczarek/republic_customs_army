@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:republic_customs_army/app/BagPage.dart';
-import 'package:republic_customs_army/app/LoginPage.dart';
-import 'package:republic_customs_army/app/MyAccountPage.dart';
-import 'package:republic_customs_army/app/NewsPage.dart';
-import 'package:republic_customs_army/app/ShopPage.dart';
+import 'package:republic_customs_army/app/features/Bag/BagPageContent.dart';
+import 'package:republic_customs_army/app/login/LoginPage.dart';
+import 'package:republic_customs_army/app/features/My_Account/MyAccountPageContent.dart';
+import 'package:republic_customs_army/app/features/News/NewsPageContent.dart';
+import 'package:republic_customs_army/app/features/Shop/ShopPageContent.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({

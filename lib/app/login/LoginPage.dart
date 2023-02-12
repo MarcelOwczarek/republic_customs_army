@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:republic_customs_army/app/SecondLoginPage.dart';
+import 'package:republic_customs_army/app/login/SecondLoginPage.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({
@@ -46,7 +46,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (_) => SecondLoginPage(),
+                      builder: (_) => const SecondLoginPage(),
                     ),
                   );
                 },
