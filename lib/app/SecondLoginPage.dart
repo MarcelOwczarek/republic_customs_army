@@ -1,13 +1,22 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SecondLoginPage extends StatelessWidget {
-  SecondLoginPage({
+class SecondLoginPage extends StatefulWidget {
+  const SecondLoginPage({
     super.key,
   });
 
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  @override
+  State<SecondLoginPage> createState() => _SecondLoginPageState();
+}
+
+final emailController = TextEditingController();
+final passwordController = TextEditingController();
+
+class _SecondLoginPageState extends State<SecondLoginPage> {
+  var isCreatingAccount = false;
+  var errorMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +27,7 @@ class SecondLoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Masz już konto ?',
+              isCreatingAccount == false ? 'Stwórz konto' : 'Masz już konto?',
               style: GoogleFonts.lato(
                 fontSize: 20,
               ),
@@ -45,20 +54,53 @@ class SecondLoginPage extends StatelessWidget {
               obscureText: true,
             ),
             const SizedBox(
-              height: 25,
+              height: 10,
+            ),
+            Text(errorMessage),
+            const SizedBox(
+              height: 10,
             ),
             SizedBox(
               height: 50,
               width: 340,
               child: ElevatedButton(
-                onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.indigo,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(32),
                   ),
                 ),
-                child: const Text('Zaloguj się'),
+                child: Text(isCreatingAccount == false
+                    ? 'Zarejestruj się'
+                    : 'Zaloguj się'),
+                onPressed: () async {
+                  if (isCreatingAccount == true) {
+                    try {
+                      await FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+                    } catch (error) {
+                      setState(() {
+                        errorMessage = error.toString();
+                      });
+                      print(error);
+                    }
+                  } else {
+                    try {
+                      await FirebaseAuth.instance.signInWithEmailAndPassword(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+                    } catch (error) {
+                      setState(() {
+                        errorMessage = error.toString();
+                      });
+                      print(error);
+                    }
+                  }
+                },
               ),
             ),
             const SizedBox(
@@ -73,6 +115,31 @@ class SecondLoginPage extends StatelessWidget {
                 'Kontynuuj jako gość',
               ),
             ),
+            if (isCreatingAccount == true) ...[
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    isCreatingAccount = false;
+                  });
+                },
+                style: TextButton.styleFrom(foregroundColor: Colors.indigo),
+                child: const Text('Utwórz konto'),
+              ),
+            ],
+            const SizedBox(
+              height: 5,
+            ),
+            if (isCreatingAccount == false) ...[
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    isCreatingAccount = true;
+                  });
+                },
+                style: TextButton.styleFrom(foregroundColor: Colors.indigo),
+                child: const Text('Zaloguj się'),
+              ),
+            ]
           ],
         ),
       ),
