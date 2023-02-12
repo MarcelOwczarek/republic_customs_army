@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MyAccountPage extends StatelessWidget {
   const MyAccountPage({
@@ -7,8 +8,40 @@ class MyAccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Trzy'),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Hej',
+              style: GoogleFonts.raleway(fontSize: 30),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Text(
+              'Jesteś zalogowany jako -  X',
+              style: GoogleFonts.raleway(fontSize: 18),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            SizedBox(
+              height: 50,
+              width: 170,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.indigo,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32))),
+                child: const Text('Wyloguj się'),
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
