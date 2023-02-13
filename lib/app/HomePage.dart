@@ -26,9 +26,8 @@ class _HomePageState extends State<HomePage> {
         builder: (context, snapshot) {
           final user = snapshot.data;
           return Scaffold(
-            appBar: currentIndex == 0 || currentIndex == 1
-                ? null
-                : AppBar(
+            appBar: currentIndex == 3
+                ? AppBar(
                     backgroundColor: Colors.indigo,
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +45,8 @@ class _HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
-                  ),
+                  )
+                : null,
             body: Builder(
               builder: (context) {
                 if (currentIndex == 0) {

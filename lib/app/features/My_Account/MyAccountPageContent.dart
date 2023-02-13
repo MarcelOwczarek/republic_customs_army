@@ -18,8 +18,8 @@ class MyAccountPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Hej',
-              style: GoogleFonts.raleway(fontSize: 30),
+              'Hej 🖐',
+              style: GoogleFonts.raleway(fontSize: 22),
             ),
             const SizedBox(
               height: 25,
@@ -29,11 +29,11 @@ class MyAccountPage extends StatelessWidget {
               style: GoogleFonts.raleway(fontSize: 18),
             ),
             const SizedBox(
-              height: 25,
+              height: 45,
             ),
             SizedBox(
-              height: 50,
-              width: 170,
+              height: 45,
+              width: 150,
               child: ElevatedButton(
                 onPressed: () {
                   FirebaseAuth.instance.signOut();
@@ -42,7 +42,10 @@ class MyAccountPage extends StatelessWidget {
                     backgroundColor: Colors.indigo,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(32))),
-                child: const Text('Wyloguj się'),
+                child: Text(
+                  'Wyloguj się',
+                  style: GoogleFonts.raleway(fontSize: 18),
+                ),
               ),
             )
           ],
