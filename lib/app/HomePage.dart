@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:republic_customs_army/app/features/Bag/BagPageContent.dart';
 import 'package:republic_customs_army/app/login/LoginPage.dart';
 import 'package:republic_customs_army/app/features/My_Account/MyAccountPageContent.dart';
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
         builder: (context, snapshot) {
           final user = snapshot.data;
           return Scaffold(
-            appBar: currentIndex == 1
+            appBar: currentIndex == 0 || currentIndex == 1
                 ? null
                 : AppBar(
                     backgroundColor: Colors.indigo,
@@ -39,9 +40,9 @@ class _HomePageState extends State<HomePage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        const Text(
+                        Text(
                           'Republic Customs Army',
-                          style: TextStyle(color: Colors.cyan),
+                          style: GoogleFonts.poppins(color: Colors.white),
                         )
                       ],
                     ),

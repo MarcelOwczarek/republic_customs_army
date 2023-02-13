@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NewsPage extends StatelessWidget {
   const NewsPage({
@@ -29,6 +30,21 @@ class NewsPage extends StatelessWidget {
 
         return ListView(
           children: [
+            AppBar(
+              backgroundColor: Colors.indigo,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Aktualności',
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
+                  )
+                ],
+              ),
+            ),
             for (final document in documents) ...[
               CustomContainer(document['title']),
             ],
@@ -59,7 +75,10 @@ class CustomContainer extends StatelessWidget {
         ),
       ),
       child: Center(
-        child: Text(title),
+        child: Text(
+          title,
+          style: GoogleFonts.lato(),
+        ),
       ),
     );
   }

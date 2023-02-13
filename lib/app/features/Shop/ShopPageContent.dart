@@ -16,7 +16,7 @@ class ShopPage extends StatelessWidget {
           title: Center(
             child: Text(
               'Nasze produkty ',
-              style: GoogleFonts.poppins(),
+              style: GoogleFonts.poppins(fontSize: 20),
             ),
           ),
           bottom: TabBar(
