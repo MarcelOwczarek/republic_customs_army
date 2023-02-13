@@ -26,27 +26,6 @@ class _HomePageState extends State<HomePage> {
         builder: (context, snapshot) {
           final user = snapshot.data;
           return Scaffold(
-            appBar: currentIndex == 3
-                ? AppBar(
-                    backgroundColor: Colors.indigo,
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'images/logo.png',
-                          scale: 12,
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          'Republic Customs Army',
-                          style: GoogleFonts.poppins(color: Colors.white),
-                        )
-                      ],
-                    ),
-                  )
-                : null,
             body: Builder(
               builder: (context) {
                 if (currentIndex == 0) {
