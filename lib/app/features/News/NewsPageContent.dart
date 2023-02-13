@@ -28,27 +28,23 @@ class NewsPage extends StatelessWidget {
         }
         final documents = snapshot.data!.docs;
 
-        return ListView(
-          children: [
-            AppBar(
-              backgroundColor: Colors.indigo,
-              title: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Aktualności',
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
-                  )
-                ],
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.indigo,
+            title: Center(
+              child: Text(
+                'Aktualności',
+                style: GoogleFonts.poppins(color: Colors.white),
               ),
             ),
-            for (final document in documents) ...[
-              CustomContainer(document['title']),
+          ),
+          body: ListView(
+            children: [
+              for (final document in documents) ...[
+                CustomContainer(document['title']),
+              ],
             ],
-          ],
+          ),
         );
       },
     );
