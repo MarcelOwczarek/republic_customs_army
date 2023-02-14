@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:republic_customs_army/app/features/Shop/Bookmarks/AccessoriesBookmark.dart';
+import 'package:republic_customs_army/app/features/Shop/Bookmarks/BlastersBookmark.dart';
+import 'package:republic_customs_army/app/features/Shop/Bookmarks/DecalsBookmark.dart';
+import 'package:republic_customs_army/app/features/Shop/Bookmarks/HelmetsBookmark.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({
@@ -27,7 +31,7 @@ class _ShopPageState extends State<ShopPage> {
             ),
           ),
           bottom: TabBar(
-            isScrollable: true,
+            //isScrollable: true,
             onTap: (newIndex) {
               setState(() {
                 currentIndex = newIndex;
@@ -55,322 +59,18 @@ class _ShopPageState extends State<ShopPage> {
         ),
         body: Builder(builder: (context) {
           if (currentIndex == 0) {
-            return const FirstCategory();
+            return const AccessoriesBookmark();
           }
           if (currentIndex == 1) {
-            return const SecondCategory();
+            return const BlastersBookmark();
           }
           if (currentIndex == 2) {
-            return const ThirdCategory();
+            return const HelmetsBookmark();
           }
 
-          return const FourCategory();
+          return const DecalsBookmark();
         }),
       ),
-    );
-  }
-}
-
-class FirstCategory extends StatelessWidget {
-  const FirstCategory({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      padding: const EdgeInsets.all(20),
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Stack(
-                children: [
-                  Container(
-                    width: 160,
-                    height: 160,
-                    padding: const EdgeInsets.all(0),
-                    margin: const EdgeInsets.all(0),
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                      image: DecorationImage(
-                        image: AssetImage('images/501_legion.png'),
-                      ),
-                    ),
-                    child: GestureDetector(
-                      onTap: () {},
-                    ),
-                  ),
-                  SizedBox(
-                    width: 160,
-                    height: 160,
-                    child: Align(
-                      alignment: const FractionalOffset(1.03, -0.03),
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.favorite_border_outlined,
-                          size: 20,
-                          color: Colors.red,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 160,
-                    height: 160,
-                    child: Align(
-                      alignment: const FractionalOffset(0.07, 0.93),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        color: Colors.indigo,
-                        child: const Text(
-                          ' 35 zł ',
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class SecondCategory extends StatelessWidget {
-  const SecondCategory({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      padding: const EdgeInsets.all(20),
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Stack(
-                children: [
-                  Container(
-                    width: 160,
-                    height: 160,
-                    padding: const EdgeInsets.all(0),
-                    margin: const EdgeInsets.all(0),
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                      image: DecorationImage(
-                        image: AssetImage('images/187_th.png'),
-                      ),
-                    ),
-                    child: GestureDetector(
-                      onTap: () {},
-                    ),
-                  ),
-                  SizedBox(
-                    width: 160,
-                    height: 160,
-                    child: Align(
-                      alignment: const FractionalOffset(1.03, -0.03),
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.favorite_border_outlined,
-                          size: 20,
-                          color: Colors.red,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 160,
-                    height: 160,
-                    child: Align(
-                      alignment: const FractionalOffset(0.07, 0.93),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        color: Colors.indigo,
-                        child: const Text(
-                          ' 35 zł ',
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class ThirdCategory extends StatelessWidget {
-  const ThirdCategory({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      padding: const EdgeInsets.all(20),
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Stack(
-                children: [
-                  Container(
-                    width: 160,
-                    height: 160,
-                    padding: const EdgeInsets.all(0),
-                    margin: const EdgeInsets.all(0),
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                      image: DecorationImage(
-                        image: AssetImage('images/mystery_box.jpg'),
-                      ),
-                    ),
-                    child: GestureDetector(
-                      onTap: () {},
-                    ),
-                  ),
-                  SizedBox(
-                    width: 160,
-                    height: 160,
-                    child: Align(
-                      alignment: const FractionalOffset(1.03, -0.03),
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.favorite_border_outlined,
-                          size: 20,
-                          color: Colors.red,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 160,
-                    height: 160,
-                    child: Align(
-                      alignment: const FractionalOffset(0.07, 0.93),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        color: Colors.indigo,
-                        child: const Text(
-                          ' 35 zł ',
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class FourCategory extends StatelessWidget {
-  const FourCategory({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      padding: const EdgeInsets.all(20),
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Stack(
-                children: [
-                  Container(
-                    width: 160,
-                    height: 160,
-                    padding: const EdgeInsets.all(0),
-                    margin: const EdgeInsets.all(0),
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                      image: DecorationImage(
-                        image: AssetImage('images/logo.png'),
-                      ),
-                    ),
-                    child: GestureDetector(
-                      onTap: () {},
-                    ),
-                  ),
-                  SizedBox(
-                    width: 160,
-                    height: 160,
-                    child: Align(
-                      alignment: const FractionalOffset(1.03, -0.03),
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.favorite_border_outlined,
-                          size: 20,
-                          color: Colors.red,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 160,
-                    height: 160,
-                    child: Align(
-                      alignment: const FractionalOffset(0.07, 0.93),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        color: Colors.indigo,
-                        child: const Text(
-                          ' 35 zł ',
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
-            ],
-          ),
-        ),
-      ],
     );
   }
 }
