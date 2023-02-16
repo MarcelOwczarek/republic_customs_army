@@ -30,7 +30,7 @@ class ItemContainer extends StatelessWidget {
                   ),
                   image: DecorationImage(
                     image: NetworkImage(
-                      document['image_url'],
+                      document['tile_imageurl'],
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -60,26 +60,27 @@ class ItemContainer extends StatelessWidget {
                                         width: 300,
                                         alignment: Alignment.topCenter,
                                         decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(30),
-                                            color: Colors.grey[700]),
-                                        child: Center(
-                                            child: Text('zdjątka',
-                                                style: GoogleFonts.raleway(
-                                                    color: Colors.orange,
-                                                    fontSize: 17))),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                          color: Colors.grey[700],
+                                          image: DecorationImage(
+                                            image: NetworkImage(
+                                              document['product_imageurl'],
+                                            ),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                    Text(document['name_ofproduct'],
+                                    Text(document['product_name'],
                                         style: GoogleFonts.poppins(
-                                            color: Colors.orange,
-                                            fontSize: 17)),
+                                            color: Colors.white, fontSize: 17)),
                                     const SizedBox(
                                       height: 10,
                                     ),
                                     SizedBox(
                                       height: 30,
-                                      width: 180,
+                                      width: 230,
                                       child: ElevatedButton(
                                         onPressed: () {},
                                         style: ElevatedButton.styleFrom(
@@ -98,26 +99,32 @@ class ItemContainer extends StatelessWidget {
                                       height: 20,
                                     ),
                                     Text(
-                                      'Szczegóły produktu',
+                                      'Szczegóły produktu:',
                                       style: GoogleFonts.poppins(
                                           color: Colors.white, fontSize: 17),
                                     ),
                                     const SizedBox(
-                                      height: 10,
+                                      height: 5,
                                     ),
-                                    Text(
-                                      document['description'],
-                                      style: GoogleFonts.poppins(
-                                          color: Colors.orange, fontSize: 17),
+                                    Padding(
+                                      padding: const EdgeInsets.all(20.0),
+                                      child: Text(
+                                        document['product_description'],
+                                        style: GoogleFonts.poppins(
+                                            color: Colors.grey, fontSize: 12),
+                                      ),
                                     ),
                                   ]),
                                 ),
-                                const Positioned(
+                                Positioned(
                                   bottom: 10,
-                                  child: Icon(
-                                    Icons.cancel_outlined,
-                                    color: Colors.grey,
-                                    size: 40,
+                                  child: IconButton(
+                                    icon: const Icon(Icons.cancel_outlined),
+                                    color: Colors.redAccent,
+                                    iconSize: 40,
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
                                   ),
                                 )
                               ],
@@ -152,8 +159,8 @@ class ItemContainer extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15)),
                     color: Colors.indigo,
                     child: Text(
-                      document['price'],
-                      style: const TextStyle(color: Colors.white, fontSize: 15),
+                      document['tile_text'],
+                      style: const TextStyle(color: Colors.white, fontSize: 10),
                     ),
                   ),
                 ),
