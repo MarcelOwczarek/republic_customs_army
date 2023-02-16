@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:republic_customs_army/app/features/Shop/Bookmarks/HelmetsBookmark/cubit/helmets_bookmark_cubit.dart';
 import 'package:republic_customs_army/app/widgets/ItemContainer.dart';
 
-class HelmetsBookmark extends HelmetsBookmark {
+class HelmetsBookmark extends StatelessWidget {
   const HelmetsBookmark({
     super.key,
   });

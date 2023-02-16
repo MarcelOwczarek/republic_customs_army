@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:republic_customs_army/app/features/Shop/Bookmarks/DecalsBookmark/cubit/decals_bookmark_cubit.dart';
+import 'package:republic_customs_army/app/widgets/ItemContainer.dart';
 
 class DecalsBookmark extends StatelessWidget {
   const DecalsBookmark({
@@ -7,71 +10,28 @@ class DecalsBookmark extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      padding: const EdgeInsets.all(20),
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Stack(
-                children: [
-                  Container(
-                    width: 160,
-                    height: 160,
-                    padding: const EdgeInsets.all(0),
-                    margin: const EdgeInsets.all(0),
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(20),
-                      ),
-                      image: DecorationImage(
-                        image: AssetImage('images/logo.png'),
-                      ),
-                    ),
-                    child: GestureDetector(
-                      onTap: () {},
-                    ),
+    return BlocProvider(
+      create: (context) => DecalsBookmarkCubit()..start(),
+      child: BlocBuilder<DecalsBookmarkCubit, DecalsBookmarkState>(
+        builder: (context, state) {
+          final documents = state.items?.docs;
+          if (documents == null) {
+            return const SizedBox.shrink();
+          } else {
+            return GridView.count(
+              crossAxisCount: 2,
+              padding: const EdgeInsets.all(20),
+              children: [
+                for (final document in documents) ...[
+                  ItemContainer(
+                    document: document,
                   ),
-                  SizedBox(
-                    width: 160,
-                    height: 160,
-                    child: Align(
-                      alignment: const FractionalOffset(1.03, -0.03),
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.favorite_border_outlined,
-                          size: 20,
-                          color: Colors.red,
-                        ),
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 160,
-                    height: 160,
-                    child: Align(
-                      alignment: const FractionalOffset(0.07, 0.93),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        color: Colors.indigo,
-                        child: const Text(
-                          ' 35 zł ',
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        ),
-                      ),
-                    ),
-                  )
                 ],
-              ),
-            ],
-          ),
-        ),
-      ],
+              ],
+            );
+          }
+        },
+      ),
     );
   }
 }
