@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:republic_customs_army/app/features/Shop/Bookmarks/AccessoriesBookmark/AccessoriesBookmark.dart';
-import 'package:republic_customs_army/app/features/Shop/Bookmarks/BlastersBookmark.dart';
-import 'package:republic_customs_army/app/features/Shop/Bookmarks/DecalsBookmark.dart';
-import 'package:republic_customs_army/app/features/Shop/Bookmarks/HelmetsBookmark.dart';
+import 'package:republic_customs_army/app/features/Shop/Bookmarks/BlastersBookmark/BlastersBookmark.dart';
+import 'package:republic_customs_army/app/features/Shop/Bookmarks/DecalsBookmark/DecalsBookmark.dart';
+import 'package:republic_customs_army/app/features/Shop/Bookmarks/HelmetsBookmark/HelmetsBookmark.dart';
 
 class ShopPage extends StatefulWidget {
   const ShopPage({
