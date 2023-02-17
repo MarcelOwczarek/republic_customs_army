@@ -1,6 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:republic_customs_army/app/widgets/NewsContainer.dart';
+
+import 'cubit/news_page_cubit.dart';
 
 class NewsPage extends StatelessWidget {
   const NewsPage({
@@ -9,72 +12,38 @@ class NewsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(
-      stream: FirebaseFirestore.instance.collection('news').snapshots(),
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          return const Center(
-            child: Text('Wystąpił nieoczekiwany błąd'),
-          );
-        }
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(
-                Colors.indigo,
+    return BlocProvider(
+      create: (context) => NewsPageCubit()..start(),
+      child: BlocBuilder<NewsPageCubit, NewsPageState>(
+        builder: (context, state) {
+          final documents = state.items?.docs;
+          if (documents == null) {
+            return const SizedBox.shrink(
+              child: Text('no siema'),
+            );
+          } else {
+            return Scaffold(
+              appBar: AppBar(
+                backgroundColor: Colors.indigo,
+                title: Center(
+                  child: Text(
+                    'Aktualności',
+                    style: GoogleFonts.poppins(color: Colors.white),
+                  ),
+                ),
               ),
-            ),
-          );
-        }
-        final documents = snapshot.data!.docs;
-
-        return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.indigo,
-            title: Center(
-              child: Text(
-                'Aktualności',
-                style: GoogleFonts.poppins(color: Colors.white),
+              body: ListView(
+                children: [
+                  for (final document in documents) ...[
+                    NewsContainer(
+                      document: document,
+                    ),
+                  ],
+                ],
               ),
-            ),
-          ),
-          body: ListView(
-            children: [
-              for (final document in documents) ...[
-                CustomContainer(document['title']),
-              ],
-            ],
-          ),
-        );
-      },
-    );
-  }
-}
-
-class CustomContainer extends StatelessWidget {
-  const CustomContainer(
-    this.title, {
-    Key? key,
-  }) : super(key: key);
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      margin: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        border: Border.all(width: 1, color: Colors.indigo),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(15),
-        ),
-      ),
-      child: Center(
-        child: Text(
-          title,
-          style: GoogleFonts.lato(),
-        ),
+            );
+          }
+        },
       ),
     );
   }
