@@ -31,7 +31,7 @@ class _ShopPageState extends State<ShopPage> {
             ),
           ),
           bottom: TabBar(
-            //isScrollable: true,
+            isScrollable: true,
             onTap: (newIndex) {
               setState(() {
                 currentIndex = newIndex;
