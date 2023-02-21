@@ -29,6 +29,13 @@
             {
               "client_id": "291498837160-fh6b09lunpun7a1vqp1fpks0ski0kmj9.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "291498837160-9nk2h6c3tsndi97s66uoeoi4t4qgepe5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.marcelowczarek.republicCustomsArmy"
+              }
             }
           ]
         }
