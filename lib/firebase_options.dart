@@ -3,7 +3,6 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -47,8 +46,8 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static FirebaseOptions web = FirebaseOptions(
-    apiKey: '${dotenv.env['api_web']}',
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAJUsVdvSZ8EniaCLdyFg6ARyASksdaFKk',
     appId: '1:291498837160:web:0aa683d6176c7829c92e9d',
     messagingSenderId: '291498837160',
     projectId: 'republiccustomsarmy',
@@ -57,16 +56,16 @@ class DefaultFirebaseOptions {
     measurementId: 'G-LBEL3D55Z3',
   );
 
-  static FirebaseOptions android = FirebaseOptions(
-    apiKey: '${dotenv.env['api_android']}',
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyCsSwYp8Nsv4gDwerFvsfGo1ULlhyirNbM',
     appId: '1:291498837160:android:f89494d4f63064d7c92e9d',
     messagingSenderId: '291498837160',
     projectId: 'republiccustomsarmy',
     storageBucket: 'republiccustomsarmy.appspot.com',
   );
 
-  static FirebaseOptions ios = FirebaseOptions(
-    apiKey: '${dotenv.env['api_ios']}',
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDo4XnO6kzwgDl-_P2aCCcQAPbRtZIN08o',
     appId: '1:291498837160:ios:5b45d86fcb671854c92e9d',
     messagingSenderId: '291498837160',
     projectId: 'republiccustomsarmy',
