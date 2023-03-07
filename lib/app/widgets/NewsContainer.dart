@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,26 +14,25 @@ class NewsContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Container(
-                  width: 340,
-                  height: 505,
-                  padding: const EdgeInsets.all(0),
-                  margin: const EdgeInsets.all(0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.grey[900],
-                  ),
-                  child: SingleChildScrollView(
-                    physics: const BouncingScrollPhysics(),
+    return FittedBox(
+      fit: BoxFit.fitHeight,
+      child: Container(
+        margin: const EdgeInsets.only(top: 0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Container(
+                    width: 340,
+                    padding: const EdgeInsets.all(0),
+                    margin: const EdgeInsets.all(0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.grey[900],
+                    ),
                     child: Column(
                       children: [
                         Padding(
@@ -74,6 +75,7 @@ class NewsContainer extends StatelessWidget {
                                   fontSize: 13,
                                   color: Colors.white,
                                 ),
+                                textAlign: TextAlign.justify,
                               ),
                               const SizedBox(
                                 height: 5,
@@ -95,10 +97,10 @@ class NewsContainer extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-            ],
-          )
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
